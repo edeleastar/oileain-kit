@@ -23,7 +23,7 @@
 	let overlays: Control.LayersObject = {};
 	let markerMap = new Map<Marker, MarkerSpec>();
 
-	let baseLayers = {
+	let baseLayers: any = {
 		Terrain: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 			maxZoom: 17,
 			attribution:
@@ -121,6 +121,4 @@
 	}
 </script>
 
-<!-- <div {id} style="height:{height}px" /> -->
-
-<section {id} class="box" style="height: {height}vh" />
+<div {id} class="box" style="height: {height}vh" />

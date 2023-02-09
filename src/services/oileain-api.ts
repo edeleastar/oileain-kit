@@ -22,7 +22,7 @@ export const oileain = {
 	},
 
 	// Retrieve details in a single island - and cache locally
-	async getIslandById(id: string) {
+	async getIslandById(id: string): Promise<Island> {
 		await this.getCoasts();
 		// get local copy
 		const cachedPoi = this.islandMap.get(id);

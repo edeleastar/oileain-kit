@@ -4,4 +4,4 @@
 	export let data: PageData;
 </script>
 
-<LeafletMap markerLayers={data.markerLayers} />
+<LeafletMap height={85} markerLayers={data.markerLayers} />

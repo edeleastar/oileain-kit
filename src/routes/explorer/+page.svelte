@@ -13,12 +13,10 @@
 	let island: Island;
 	let navigator: LeafletMap;
 
-	markerSelected.subscribe((marker: MarkerSpec) => {
+	markerSelected.subscribe(async (marker: MarkerSpec) => {
 		if (marker) {
-			oileain.getIslandById(marker.id).then((islandSelected) => {
-				island = islandSelected;
-				navigator.addPopupMarkerAndZoom("selected", generateMarkerSpec(island));
-			});
+			island = await oileain.getIslandById(marker.id);
+			navigator.addPopupMarkerAndZoom("selected", generateMarkerSpec(island));
 		}
 	});
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Island } from '../services/oileain-types';
+	import type { Island } from "../services/oileain-types";
 
 	export let island: Island;
 </script>
