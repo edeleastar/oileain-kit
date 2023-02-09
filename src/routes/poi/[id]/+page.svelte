@@ -8,7 +8,7 @@
 
 <div class="columns">
 	<div class="column">
-		<LeafletMap id="map-main" marker={data.marker} zoom={7} height={560} />
+		<LeafletMap id="map-main" marker={data.marker} zoom={7} height={40} />
 		<IslandCoordinates island={data.island} />
 	</div>
 	<div class="column">

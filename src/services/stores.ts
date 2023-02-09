@@ -1,9 +1,4 @@
-import { writable } from 'svelte/store';
+import type { MarkerSpec } from "./markers";
+import { writable } from "svelte/store";
 
-const Poi = {
-	title: '',
-	lat: 0,
-	lng: 0
-};
-
-export const currentPoi = writable(Poi);
+export const markerSelected = writable<MarkerSpec>();

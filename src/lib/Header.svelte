@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Icon from 'svelte-awesome';
-	import { faMap } from '@fortawesome/free-regular-svg-icons';
-	import { faMapMarked } from '@fortawesome/free-solid-svg-icons';
+	import Icon from "svelte-awesome";
+	import { faMap } from "@fortawesome/free-regular-svg-icons";
+	import { faMapMarked } from "@fortawesome/free-solid-svg-icons";
 </script>
 
 <div class="columns is-vcentered">
@@ -24,7 +24,7 @@
 			<a href="/" class="column">
 				<Icon data={faMap} scale={4} />
 			</a>
-			<a href="/navigator" class="column">
+			<a href="/explorer" class="column">
 				<Icon data={faMapMarked} scale={4} />
 			</a>
 		</div>

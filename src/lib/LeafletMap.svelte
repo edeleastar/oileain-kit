@@ -1,19 +1,22 @@
 <script lang="ts">
-	import { createEventDispatcher, onMount } from "svelte";
-	import type { Control, LatLng, Layer, LayerGroup, Map as LeafletMap, Marker } from "leaflet";
+	import { onMount } from "svelte";
+	import { LatLng, type Control, type Layer, type LayerGroup, type Map as LeafletMap, type Marker } from "leaflet";
 	import L from "leaflet";
 	import type { MarkerLayer, MarkerSpec } from "../services/markers";
-
-	const dispatch = createEventDispatcher();
+	import { markerSelected } from "../services/stores";
 
 	export let id = "home-map-id";
-	export let height = 800;
+	export let height = 80;
 	export let location = { lat: 53.2734, lng: -7.7783203 };
 	export let zoom = 8;
 	export let minZoom = 7;
 	export let activeLayer = "Terrain";
-	export let markerLayers: MarkerLayer[];
-	export let marker: MarkerSpec;
+	export let markerLayers: MarkerLayer[] = [];
+	export let marker: MarkerSpec = {
+		id: "",
+		title: "",
+		location: new LatLng(0, 0)
+	};
 
 	let imap: LeafletMap;
 	let control: Control.Layers;
@@ -40,7 +43,7 @@
 			layers: [defaultLayer]
 		});
 		addControl();
-		if (marker) {
+		if (marker.id) {
 			addPopupMarkerAndZoom("default", marker);
 		}
 		if (markerLayers) {
@@ -72,9 +75,7 @@
 			marker.addTo(group).on("popupopen", (event: any) => {
 				const marker = event.popup._source;
 				const markerSpec = markerMap.get(marker);
-				dispatch("message", {
-					marker: markerSpec
-				});
+				markerSelected.set(markerSpec!);
 			});
 		});
 		addLayer(markerLayer.title, group);
@@ -120,4 +121,6 @@
 	}
 </script>
 
-<div {id} style="height:{height}px" />
+<!-- <div {id} style="height:{height}px" /> -->
+
+<section {id} class="box" style="height: {height}vh" />
