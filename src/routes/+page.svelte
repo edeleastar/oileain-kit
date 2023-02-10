@@ -5,11 +5,4 @@
 	export let data: PageData;
 </script>
 
-<div class="columns">
-	<div class="column is-four-fifths">
-		<LeafletMap height={85} markerLayers={data.markerLayers} />
-	</div>
-	<div class="column">
-		<SideBar coasts={data.coasts} />
-	</div>
-</div>
+<LeafletMap height={85} markerLayers={data.markerLayers} />

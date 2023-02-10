@@ -1,6 +1,7 @@
 import type { Island, IslandGroup } from "./oileain-types";
 import type { MarkerLayer } from "./markers";
 import { generateMarkerLayer, generateMarkerLayers, generateMarkerSpec } from "./oileaiin-markers";
+import { allCoasts } from "./stores";
 
 // Cache & index island data
 export const oileain = {
@@ -18,6 +19,7 @@ export const oileain = {
 			this.coasts = await response.json();
 			this.createIndexes();
 			this.markerLayers = generateMarkerLayers(this.coasts);
+			allCoasts.set(oileain.coasts);
 		}
 		return this.coasts;
 	},

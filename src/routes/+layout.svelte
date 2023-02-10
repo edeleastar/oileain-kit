@@ -5,5 +5,12 @@
 
 <Header />
 <div class="container">
-	<slot />
+	<div class="columns">
+		<div class="column is-four-fifths">
+			<slot />
+		</div>
+		<div class="column">
+			<SideBar />
+		</div>
+	</div>
 </div>

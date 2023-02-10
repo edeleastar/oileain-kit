@@ -1,14 +1,15 @@
 <script lang="ts">
 	import type { IslandGroup } from "../services/oileain-types";
+	import { allCoasts } from "../services/stores";
 
 	// https://codepen.io/havardob/pen/abBJgQo
-	export let coasts: Array<IslandGroup>;
+	// export let coasts: Array<IslandGroup>;
 </script>
 
-{#each coasts as coast}
+{#each $allCoasts as coast}
 	<details>
 		<summary>
-			<a href="#">{coast.title}</a>
+			{coast.title}
 		</summary>
 		<div>
 			{#each coast.pois as island}
