@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Header from '../lib/Header.svelte';
+	import SideBar from "$lib/SideBar.svelte";
+	import Header from "../lib/Header.svelte";
 </script>
 
 <Header />

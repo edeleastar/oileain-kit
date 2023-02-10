@@ -19,6 +19,7 @@ export const oileain = {
 			this.createIndexes();
 			this.markerLayers = generateMarkerLayers(this.coasts);
 		}
+		return this.coasts;
 	},
 
 	// Retrieve details in a single island - and cache locally
