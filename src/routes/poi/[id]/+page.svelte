@@ -6,6 +6,7 @@
 	import IslandCoordinates from "$lib/IslandCoordinates.svelte";
 	import IslandDescription from "$lib/IslandDescription.svelte";
 	import { generateMarkerSpec } from "../../../services/oileaiin-markers";
+
 	let navigator: LeafletMap;
 
 	page.subscribe((path) => {

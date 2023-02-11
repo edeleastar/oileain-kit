@@ -56,7 +56,7 @@
 	export function addPopupMarkerAndZoom(layer: string, marker: MarkerSpec) {
 		if (imap) {
 			addPopup(layer, marker.title, marker.location);
-			moveTo(15, marker.location);
+			moveTo(marker.location, 15);
 			invalidateSize();
 		}
 	}
@@ -97,9 +97,12 @@
 		hiddenMethodMap._onResize();
 	}
 
-	function moveTo(zoom: number, location: LatLng) {
-		imap.setZoom(zoom);
-		imap.panTo(location);
+	export function moveTo(location: LatLng, zoom: number = 0) {
+		if (zoom == 0) {
+			imap.flyTo(location);
+		} else {
+			imap.flyTo(location, zoom);
+		}
 	}
 
 	function addPopup(layerTitle: string, content: string, location: LatLng) {

@@ -3,7 +3,6 @@
 	import { allCoasts } from "../services/stores";
 
 	// https://codepen.io/havardob/pen/abBJgQo
-	// export let coasts: Array<IslandGroup>;
 </script>
 
 {#each $allCoasts as coast}
@@ -13,7 +12,7 @@
 		</summary>
 		<div>
 			{#each coast.pois as island}
-				<a href="/poi/{island.safeName}"> {@html island.name}</a>
+				<a href="/navigator/{island.safeName}"> {@html island.name}</a>
 			{/each}
 		</div>
 	</details>
